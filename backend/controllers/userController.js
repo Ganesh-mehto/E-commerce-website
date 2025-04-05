@@ -95,18 +95,18 @@ const updateCurrentUserProfile = asyncHandler(async (req, res) => {
 
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
+      const hashedPassword = await bcrypt.hash(password, salt);
       user.password = hashedPassword
     }
     const updatedUser = await user.save()
     res.json({
-      _id:updatedUser._id,
-      username:updatedUser.username,
-      emial:updatedUser.email,
-      isAdmin:updatedUser.isAdmin,
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      emial: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
     })
   }
-  else{
+  else {
     res.status(401)
     throw new Error("user not found")
   }
@@ -162,4 +162,4 @@ const updateUserById = asyncHandler(async (req, res) => {
   }
 });
 
-export { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile,deleteUserById,getUserById,updateUserById}
+export { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, deleteUserById, getUserById, updateUserById }
