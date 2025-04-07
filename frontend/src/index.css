@@ -6,6 +6,6 @@ body {
   
   input,
   textarea {
-    color: #7d7676;
-    :white
+    background: #49494a;
+    color: #f5f4f4;
   }
