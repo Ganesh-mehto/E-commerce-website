@@ -7,8 +7,8 @@ const createCategory=asyncHandler(async(req,res)=>{
         if (!name) {
             return res.json({error:"name is requried"})
         }
-        const existingCategor= await Category.findOne({name})
-        if (existingCategor) {
+        const existingCategory= await Category.findOne({name})
+        if (existingCategory) {
             return res.json({error:"Already exists"})
         }
         const category =await new Category({name}).save()
@@ -39,16 +39,15 @@ const updateCategory =asyncHandler(async(req,res)=>{
     }
 })
 
-const removeCategory =asyncHandler(async(req,res)=>{
-    try{
-        const removed=await Category.findByIdAndRemove(req.params.categoryId)
-        res.json(removed)
+const removeCategory = asyncHandler(async (req, res) => {
+    try {
+      const removed = await Category.findByIdAndRemove(req.params.categoryId);
+      res.json(removed);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
     }
-    catch (error){
-        console.error(error)
-        return res.status(404).json({error:"internal server error"})
-    }
-})
+  });
 
 const listCategory =asyncHandler(async(req,res)=>{
     try{
