@@ -3,9 +3,9 @@ import { toast } from "react-toastify"
 import { useCreateCategoryMutation,
   useUpdateCategoryMutation,
   useDeleteCategoryMutation,
-  useFetchCategoriesQuery,} from '../../redux/api/categoryApiSlice'
-import CategoryForm from "../../components/CategoryForm"
-import Modal from "../../components/Modal"
+  useFetchCategoriesQuery,} from '../../redux/api/categoryApiSlice.js'
+import CategoryForm from "../../components/CategoryForm.jsx"
+import Modal from '../../components/Modal.jsx'
 
 
 const CategoryList = () => {
@@ -107,6 +107,7 @@ const CategoryList = () => {
             buttonText="Update"
             handleDelete={handleDeleteCategory}/>
         </Modal>
+        <Modal/>
       </div>
     </div>
   )
