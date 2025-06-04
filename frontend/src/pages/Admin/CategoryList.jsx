@@ -107,7 +107,6 @@ const CategoryList = () => {
             buttonText="Update"
             handleDelete={handleDeleteCategory}/>
         </Modal>
-        <Modal/>
       </div>
     </div>
   )
